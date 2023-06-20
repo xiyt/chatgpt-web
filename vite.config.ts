@@ -7,17 +7,18 @@ import { VitePWA } from 'vite-plugin-pwa'
 function setupPlugins(env: ImportMetaEnv): PluginOption[] {
   return [
     vue(),
-    env.VITE_GLOB_APP_PWA === 'true' && VitePWA({
-      injectRegister: 'auto',
-      manifest: {
-        name: 'chatGPT',
-        short_name: 'chatGPT',
-        icons: [
-          { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' },
-        ],
-      },
-    }),
+    env.VITE_GLOB_APP_PWA === 'true'
+      && VitePWA({
+        injectRegister: 'auto',
+        manifest: {
+          name: 'chatGPT',
+          short_name: 'chatGPT',
+          icons: [
+            { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
+            { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' },
+          ],
+        },
+      }),
   ]
 }
 
@@ -25,6 +26,7 @@ export default defineConfig((env) => {
   const viteEnv = loadEnv(env.mode, process.cwd()) as unknown as ImportMetaEnv
 
   return {
+    base: '/ai/',
     resolve: {
       alias: {
         '@': path.resolve(process.cwd(), 'src'),
