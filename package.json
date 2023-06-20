@@ -14,7 +14,7 @@
 		"dev": "vite",
 		"build": "run-p type-check build-only",
 		"preview": "vite preview",
-		"build-only": "vite build --max_old_space_size=5000",
+		"build-only": "vite build --max-old-space-size=5000",
 		"type-check": "vue-tsc --noEmit",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
